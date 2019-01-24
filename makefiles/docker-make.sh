@@ -4,7 +4,7 @@ cd $(dirname $(realpath $0))/../
 set -eo pipefail
 
 # initialize submodules if nescessary
-(git submodule status --recursive | grep "^-") && git submodule update --init --recursive
+(git submodule status --recursive | grep "^-") && git submodule update --init --recursive && git submodule foreach git pull origin master
 
 # check for the right privileges
 docker ps > /dev/null
